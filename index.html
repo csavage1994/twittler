@@ -21,9 +21,10 @@
           index -= 1;
         }
         $('div').on('click', '.tweetUser', function(){
-          var clickedUser = this.id;
-          console.log(clickedUser);
-          console.log(streams.users.clickedUser);
+          var reference = streams.users[this.id];
+          for(var key in reference){
+            console.log(reference[key].message);
+          }
         });
       });
 
