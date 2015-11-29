@@ -21,9 +21,15 @@
           index -= 1;
         }
         $('div').on('click', '.tweetUser', function(){
+          $body.html('');
           var reference = streams.users[this.id];
           for(var key in reference){
-            console.log(reference[key].message);
+            var userTweet = streams.home[key];
+            console.log(userTweet.created_at.getMonth());
+            var $userTweet = $('<div class = "tweet"</div>');
+            $userTweet.html('<a href="#" class="tweetUser" ' + 'id="' + reference[key].user + '">@' + reference[key].user + '</a>:' + reference[key].message + ' ' + userTweet.created_at.getMonth() + '/' + userTweet.created_at.getDate() + '/' + userTweet.created_at.getFullYear() + ' ' + userTweet.created_at.getHours() + ':' + userTweet.created_at.getMinutes());
+
+            $userTweet.appendTo($body);
           }
         });
       });
