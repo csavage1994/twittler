@@ -9,31 +9,44 @@
     <script>
 
       $(document).ready(function(){
+        var $button = $('<button type ="button" class = "returnButton"> click </button>');
         var $body = $('body');
         $body.html('');
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
-          $tweet.html('<a href="#" class="tweetUser" ' + 'id="' + tweet.user + '">@' + tweet.user + '</a>: ' + tweet.message + ' ' + tweet.created_at.getMonth() + '/' + tweet.created_at.getDate() + '/' + tweet.created_at.getFullYear() + ' ' + tweet.created_at.getHours() + ':' + tweet.created_at.getMinutes());
+        var testing = function(){
+          var index = streams.home.length - 1;
+          while(index >= 0){
+            var tweet = streams.home[index];
+            var $tweet = $('<div class="tweet"></div>');
+            $tweet.html('<a href="#" class="tweetUser" ' + 'id="' + tweet.user + '">@' + tweet.user + '</a>: ' + tweet.message + ' ' + tweet.created_at.getMonth() + '/' + tweet.created_at.getDate() + '/' + tweet.created_at.getFullYear() + ' ' + tweet.created_at.getHours() + ':' + tweet.created_at.getMinutes());
 
-          $tweet.appendTo($body);
-          index -= 1;
+            $tweet.appendTo($body);
+            index -= 1;
+          }
         }
-        $('div').on('click', '.tweetUser', function(){
+        testing();
+        //setTimeout(testing, 5000);
+
+        $(document).on('click', '.tweetUser', function(){
           $body.html('');
           var reference = streams.users[this.id];
           for(var key in reference){
             var userTweet = streams.home[key];
-            console.log(userTweet.created_at.getMonth());
             var $userTweet = $('<div class = "tweet"</div>');
             $userTweet.html('<a href="#" class="tweetUser" ' + 'id="' + reference[key].user + '">@' + reference[key].user + '</a>:' + reference[key].message + ' ' + userTweet.created_at.getMonth() + '/' + userTweet.created_at.getDate() + '/' + userTweet.created_at.getFullYear() + ' ' + userTweet.created_at.getHours() + ':' + userTweet.created_at.getMinutes());
 
             $userTweet.appendTo($body);
+            $button.appendTo($body);
           }
-        });
-      });
+        
+          $('button').on('click', function(){
+            $body.html('');
+            testing();
+          });
 
+        });
+
+      });
+   
     </script>
   </body>
 </html>
