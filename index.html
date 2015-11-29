@@ -9,10 +9,11 @@
     <script>
 
       $(document).ready(function(){
-        var $button = $('<button type ="button" class = "returnButton"> click </button>');
+        var $returnButton = $('<button type ="button" class = "button"> Return to Home </button>');
+        var $loadTweetButton = $('<button type ="button" class = "button"> Load More Tweets </button>');
         var $body = $('body');
         $body.html('');
-        var testing = function(){
+        var loadTweets = function(){
           var index = streams.home.length - 1;
           while(index >= 0){
             var tweet = streams.home[index];
@@ -22,9 +23,9 @@
             $tweet.appendTo($body);
             index -= 1;
           }
+          $loadTweetButton.appendTo($body);
         }
-        testing();
-        //setTimeout(testing, 5000);
+        loadTweets();
 
         $(document).on('click', '.tweetUser', function(){
           $body.html('');
@@ -35,15 +36,17 @@
             $userTweet.html('<a href="#" class="tweetUser" ' + 'id="' + reference[key].user + '">@' + reference[key].user + '</a>:' + reference[key].message + ' ' + userTweet.created_at.getMonth() + '/' + userTweet.created_at.getDate() + '/' + userTweet.created_at.getFullYear() + ' ' + userTweet.created_at.getHours() + ':' + userTweet.created_at.getMinutes());
 
             $userTweet.appendTo($body);
-            $button.appendTo($body);
+            $returnButton.appendTo($body);
           }
         
-          $('button').on('click', function(){
-            $body.html('');
-            testing();
-          });
+
 
         });
+      $(document).on('click', '.button', function(){
+            $body.html('');
+            console.log('hi');
+            loadTweets();
+          });
 
       });
    
