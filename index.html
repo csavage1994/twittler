@@ -10,9 +10,9 @@
     <script>
 
       $(document).ready(function(){
-        var $returnButton = $('<button type ="button" class = "button"> Return to Home </button>');
-        var $header = $('<div><p>Twittler</p></div>')
-        var $loadTweetButton = $('<button type ="button" class = "button"> Load More Tweets </button>');
+        var $returnButton = $('<div class="buttonDiv"><button type ="button" class = "button"> Return to Home </button></div>');
+        var $header = $('<div id ="head"><p id ="header">Twittler   Where Friends Come to be Friends&copy</p></div>')
+        var $loadTweetButton = $('<div class="buttonDiv"><button type ="button" class = "button"> Load More Tweets </button></div>');
         var $body = $('body');
         $body.html('');
         var loadTweets = function(){
@@ -21,7 +21,7 @@
           while(index >= 0){
             var tweet = streams.home[index];
             var $tweet = $('<div class="tweet"></div>');
-            $tweet.html('<a href="#" class="tweetUser" ' + 'id="' + tweet.user + '">@' + tweet.user + '</a>: ' + tweet.message + ' ' + tweet.created_at.getMonth() + '/' + tweet.created_at.getDate() + '/' + tweet.created_at.getFullYear() + ' ' + tweet.created_at.getHours() + ':' + tweet.created_at.getMinutes());
+            $tweet.html('<div class = "message"><a href="#" class="tweetUser" ' + 'id="' + tweet.user + '">@' + tweet.user + '</a>: ' + tweet.message + ' ' + tweet.created_at.getMonth() + '/' + tweet.created_at.getDate() + '/' + tweet.created_at.getFullYear() + ' ' + tweet.created_at.getHours() + ':' + tweet.created_at.getMinutes() + '</div>');
 
             $tweet.appendTo($body);
             index -= 1;
