@@ -42,12 +42,62 @@ table {
 	border-spacing: 0;
 }
 
+body{
+	background: #f2f2f2;
+}
+
 .button{
 	border-radius: 15px;
 	background-color: #66ccff;
-	font-family: "Calibri", serif;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 14px;
 	color: #f2f2f2;
 	border-style: none;
 	box-shadow: 3px 3px 3px #b3b3b3; 
+	position: relative;
+}
+.buttonDiv{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	position: relative;
+	text-align: center;
+}
+
+#head{
+	display: block;
+	background-color: #66ccff;
+	background: linear-gradient(to right, #33bbff, #00e68a);
+	padding-bottom: 50px;
+	vertical-align: middle;
+	text-align: center;
+
+}
+#header{
+	text-align: center;
+	padding-top: 50px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 24px;
+	color: white;
+	font-weight: 900;
+	letter-spacing: 3px;
+}
+
+.tweet{
+	display: inline-block;
+	position: static;
+	margin: 20px;
+	width: 300px;
+	height: 150px;
+	padding: 20px;
+	border: 1px solid black;
+	border-radius: 3px;
+	background-color: white;
+}
+
+.tweetUser{
+	padding-top: 25px;
+}
+
+.message{
+	margin-top: 50px;
 }
